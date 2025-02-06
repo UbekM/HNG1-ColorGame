@@ -1,0 +1,74 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Game</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="index.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Play:wght@400;700&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Background Music -->
+    <audio
+      class="bg-music"
+      src="/787932__edwardszakal__retro-game-music.wav"
+      autoplay
+      loop
+      type="audio/wav"
+    ></audio>
+
+    <!-- Loading Page -->
+    <div class="first-plate">
+      <h1>Color Game</h1>
+      <p class="loading">Loading...</p>
+    </div>
+
+    <!-- Game Instructions -->
+    <div class="instruction" data-testid="gameInstructions">
+      <h2>Guess the correct color!</h2>
+      <p>
+        A target color will be displayed in the box above, and you must select
+        the matching color from the six options below. <br />
+        <br />
+        Click on a color to make your guess.
+        <br />
+        If you're correct, your score increases! <br /><br />
+        <span class="fun">HAVE FUN!</span>
+      </p>
+    </div>
+
+    <!-- Game Page -->
+    <div class="second-plate">
+      <h2>Color Game</h2>
+      <div class="game-body">
+        <div class="upper">
+          <div class="score-container">
+            <p class="score">
+              Score:<span data-testid="score" class="score-digit">0</span>
+            </p>
+            <button class="btn" data-testid="newGameButton">New Game</button>
+          </div>
+        </div>
+        <div class="main-color" data-testid="colorBox"></div>
+        <p class="message">Click on a color to start</p>
+        <div class="colors">
+          <div class="color color1" data-testid="colorOption"></div>
+          <div class="color color2" data-testid="colorOption"></div>
+          <div class="color color3" data-testid="colorOption"></div>
+          <div class="color color4" data-testid="colorOption"></div>
+          <div class="color color5" data-testid="colorOption"></div>
+          <div class="color color6" data-testid="colorOption"></div>
+        </div>
+      </div>
+      <p class="status"></p>
+    </div>
+  </body>
+</html>
