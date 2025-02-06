@@ -142,6 +142,10 @@
   justify-content: space-between;
   align-items: flex-start;
 
+  @media screen and (min-width: 1000px) {
+    padding: 2rem 4rem;
+  }
+
   h2 {
     animation: loading3 3s infinite alternate;
     font-family: "Press Start 2P", "Play", "Orbitron", sans-serif;
@@ -272,6 +276,7 @@
     text-align: center;
     font-size: 1.2rem;
     letter-spacing: 3px;
+    padding-top: 1rem;
     font-family: "Press Start 2P", "Play", "Orbitron", sans-serif;
     color: lime;
     animation: loading2 1.5s infinite alternate;
