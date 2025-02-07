@@ -201,37 +201,25 @@ function getColorOptions() {
 
   colorElements.forEach((colorElement, index) => {
     colorElement.style.backgroundColor = finalOptions[index];
+    colorElement.setAttribute("data-color", finalOptions[index]); // Store color name
   });
 }
 
 colorElements.forEach((colorElement) => {
   colorElement.addEventListener("click", () => {
     const mainColorValue = colors[currentColorIndex];
-    const clickedColor = colorElement.style.backgroundColor;
+    const clickedColorName = colorElement.getAttribute("data-color");
 
-    const colorMap = {
-      "rgb(255, 0, 0)": "red",
-      "rgb(0, 128, 0)": "green",
-      "rgb(0, 0, 255)": "blue",
-      "rgb(255, 255, 0)": "yellow",
-      "rgb(128, 0, 128)": "purple",
-      "rgb(255, 165, 0)": "orange",
-      "rgb(255, 192, 203)": "pink",
-      "rgb(0, 255, 255)": "cyan",
-      "rgb(255, 0, 255)": "magenta",
-      "rgb(0, 255, 0)": "lime",
-      "rgb(0, 128, 128)": "teal",
-      "rgb(75, 0, 130)": "indigo",
-      "rgb(128, 0, 0)": "maroon",
-      "rgb(128, 128, 0)": "olive",
-    };
-
-    const clickedColorName =
-      colorMap[clickedColor] || clickedColor.toLowerCase();
-    mainColorValue === clickedColorName
-      ? ((answerStatus.innerHTML = "Correct🎉"),
-        (score.innerHTML = parseInt(score.innerHTML) + 5))
-      : (answerStatus.innerHTML = "Wrong❌");
+    if (mainColorValue === clickedColorName) {
+      answerStatus.innerHTML = "Correct🎉";
+      score.innerHTML = parseInt(score.innerHTML) + 5;
+      colorElement.classList.add("correct");
+      setTimeout(() => colorElement.classList.remove("correct"), 300);
+    } else {
+      answerStatus.innerHTML = "Wrong❌";
+      colorElement.classList.add("wrong");
+      setTimeout(() => colorElement.classList.remove("wrong"), 300);
+    }
 
     getRandomColor();
     getColorOptions();
@@ -244,6 +232,5 @@ function resetGame() {
   getRandomColor();
   getColorOptions();
 }
-gi;
 
 btn.addEventListener("click", resetGame);
